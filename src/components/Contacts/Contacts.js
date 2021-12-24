@@ -28,24 +28,37 @@ function Contacts() {
   };
 
   return (
-    <ul>
+    <>
       {load && <Loader />}
-      {filterContacts.map(({ id, name, phone }) => (
-        <li className={s.contacts_item} key={id}>
-          <p className={s.contacts_text}>
-            {name}: {phone}
-          </p>
-          <button
-            className={s.contacts_button}
-            id={id}
-            type="button"
-            onClick={handleDeleteContact}
-          >
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
+      <table className={s.table}>
+        <thead>
+          <tr className={s.table_row_title}>
+            <th className={s.table_data_title}>Name</th>
+            <th colSpan="2" className={s.table_data_title}>
+              Phone
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {filterContacts.map(({ id, name, phone }) => (
+            <tr key={id} className={s.table_row}>
+              <td className={s.table_data}>{name}</td>
+              <td className={s.table_data}>{phone}</td>
+              <td className={s.table_data}>
+                <button
+                  className={s.contacts_button}
+                  id={id}
+                  type="button"
+                  onClick={handleDeleteContact}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }
 

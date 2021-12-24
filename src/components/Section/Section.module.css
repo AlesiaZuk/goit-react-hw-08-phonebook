@@ -1,7 +1,9 @@
 .section {
-  padding: 20px;
+  padding: 20px 40px;
 }
 .title {
   margin-bottom: 15px;
   text-align: center;
+
+  color: #fff;
 }

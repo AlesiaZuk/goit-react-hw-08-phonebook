@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Section from '../../components/Section/Section';
+import s from './LoginView.module.css';
+
 function LoginView() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -22,27 +25,35 @@ function LoginView() {
   }
 
   return (
-    <form onSubmit={handleSubmit} autocomplete="off">
-      <label>
-        E-mail:
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Section title="Log In">
+      <form onSubmit={handleSubmit} autocomplete="off">
+        <div>
+          <label className={s.form_label}>
+            <input
+              className={s.form_input}
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="E-mail:"
+            />
+          </label>
+          <label className={s.form_label}>
+            <input
+              className={s.form_input}
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Password:"
+            />
+          </label>
+        </div>
+        <button className={s.form_button} type="submit">
+          <p className={s.form_button_text}>Log In</p>
+        </button>
+      </form>
+    </Section>
   );
 }
 

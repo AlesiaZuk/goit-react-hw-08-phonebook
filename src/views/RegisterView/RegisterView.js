@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Section from '../../components/Section/Section';
+
+import s from './RegisterView.module.css';
 
 function RegisterView() {
   const [name, setName] = useState();
@@ -26,34 +29,47 @@ function RegisterView() {
     setPassword('');
   }
   return (
-    <form onSubmit={handleSubmit} autocomplete="off">
-      <label>
-        Name:
-        <input type="name" name="name" value={name} onChange={handleChange} />
-      </label>
+    <Section title="Register">
+      <form onSubmit={handleSubmit} autocomplete="off">
+        <div>
+          <label className={s.form_label}>
+            <input
+              className={s.form_input}
+              type="name"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              placeholder="Username:"
+            />
+          </label>
 
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-        />
-      </label>
+          <label className={s.form_label}>
+            <input
+              className={s.form_input}
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="E-mail:"
+            />
+          </label>
 
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </label>
-
-      <button type="submit">Register</button>
-    </form>
+          <label className={s.form_label}>
+            <input
+              className={s.form_input}
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Password:"
+            />
+          </label>
+        </div>
+        <button className={s.form_button} type="submit">
+          <p className={s.form_button_text}>Register</p>
+        </button>
+      </form>
+    </Section>
   );
 }
 

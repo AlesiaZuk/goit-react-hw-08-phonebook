@@ -48,36 +48,35 @@ function Form() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label className={s.form_label}>
-        Name:
-        <input
-          className={s.form_input}
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-          placeholder="Name Lastname"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-          required
-        />
-      </label>
+      <div>
+        <label className={s.form_label}>
+          <input
+            className={s.form_input}
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            placeholder="Name Lastname:"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+            required
+          />
+        </label>
 
-      <label className={s.form_label}>
-        Number
-        <input
-          className={s.form_input}
-          type="tel"
-          name="number"
-          value={phone}
-          onChange={handleChange}
-          placeholder="Phone number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-          required
-        />
-      </label>
-
+        <label className={s.form_label}>
+          <input
+            className={s.form_input}
+            type="tel"
+            name="number"
+            value={phone}
+            onChange={handleChange}
+            placeholder="Phone number:"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+            required
+          />
+        </label>
+      </div>
       <button className={s.form_button} type="submit">
         <p className={s.form_button_text}>Add contact</p>
       </button>
