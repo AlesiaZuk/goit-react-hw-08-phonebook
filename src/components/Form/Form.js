@@ -47,7 +47,7 @@ function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <div>
         <label className={s.form_label}>
           <input

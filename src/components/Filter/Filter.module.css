@@ -1,7 +1,10 @@
+.filter {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ee9f55;
+}
 .filter_label {
   display: block;
-
-  margin-bottom: 30px;
 
   font-weight: 600;
 }
