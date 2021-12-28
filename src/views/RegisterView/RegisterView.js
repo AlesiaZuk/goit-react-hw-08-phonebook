@@ -1,48 +1,53 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/auth-operations';
 import Section from '../../components/Section/Section';
 
 import s from './RegisterView.module.css';
 
 function RegisterView() {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     const { name, value } = e.target;
     switch (name) {
-      case name:
+      case 'name':
         return setName(value);
-      case email:
+      case 'email':
         return setEmail(value);
-      case password:
+      case 'password':
         return setPassword(value);
       default:
         return;
     }
   }
+
   function handleSubmit(e) {
     e.preventDefault();
-    //   dispatch(authOperations.register({ name, email, password }));
+    dispatch(register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');
   }
+
   return (
     <Section title="Register">
-      <form onSubmit={handleSubmit} autocomplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         <div>
           <label className={s.form_label}>
             <input
               className={s.form_input}
-              type="name"
+              type="text"
               name="name"
               value={name}
               onChange={handleChange}
               placeholder="Username:"
             />
           </label>
-
           <label className={s.form_label}>
             <input
               className={s.form_input}
@@ -53,7 +58,6 @@ function RegisterView() {
               placeholder="E-mail:"
             />
           </label>
-
           <label className={s.form_label}>
             <input
               className={s.form_input}

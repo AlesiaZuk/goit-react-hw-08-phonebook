@@ -18,8 +18,7 @@ function Contacts() {
 
   useEffect(() => {
     dispatch(fetchContacts());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   const handleDeleteContact = e => {
     const { id } = e.target;
@@ -40,10 +39,10 @@ function Contacts() {
           </tr>
         </thead>
         <tbody>
-          {filterContacts.map(({ id, name, phone }) => (
+          {filterContacts.map(({ id, name, number }) => (
             <tr key={id} className={s.table_row}>
               <td className={s.table_data}>{name}</td>
-              <td className={s.table_data}>{phone}</td>
+              <td className={s.table_data}>{number}</td>
               <td className={s.table_data}>
                 <button
                   className={s.contacts_button}

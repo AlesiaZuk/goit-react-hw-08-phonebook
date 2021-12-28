@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/auth-operations';
 import Section from '../../components/Section/Section';
 import s from './LoginView.module.css';
 
 function LoginView() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -17,16 +21,17 @@ function LoginView() {
         return;
     }
   }
+
   function handleSubmit(e) {
     e.preventDefault();
-    //   dispatch(authOperations.logIn({ email, password }));
+    dispatch(logIn({ email, password }));
     setEmail('');
     setPassword('');
   }
 
   return (
     <Section title="Log In">
-      <form onSubmit={handleSubmit} autocomplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         <div>
           <label className={s.form_label}>
             <input

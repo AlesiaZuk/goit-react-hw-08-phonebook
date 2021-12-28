@@ -6,12 +6,12 @@ import Filter from '../../components/Filter/Filter';
 function PhonebookView() {
   return (
     <>
-      <Section title="Phonebook">
+      <Section title="Add contact">
         <Form />
       </Section>
       <Section title="Contacts">
         <Filter />
-        <Contacts></Contacts>
+        <Contacts />
       </Section>
     </>
   );
